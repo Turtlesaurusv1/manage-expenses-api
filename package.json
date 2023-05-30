@@ -5,7 +5,7 @@
    "type": "commonjs",
    "devDependencies": {
       "@types/node": "^16.11.10",
-      "ts-node": "10.7.0",
+      "ts-node": "^10.9.1",
       "typescript": "4.5.2"
    },
    "dependencies": {
@@ -19,6 +19,6 @@
    "scripts": {
       "start": "ts-node src/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "start:dev": "start --watch"
+      "start:dev": "npx nodemon src/index.ts"
    }
 }

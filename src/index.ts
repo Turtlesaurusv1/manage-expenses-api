@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./data-source"
 import { Routes } from "./routes"
+const ports = process.env.ports || 3000
 
 AppDataSource.initialize().then(async () => {
     // create express app
@@ -26,7 +27,7 @@ AppDataSource.initialize().then(async () => {
     // ...
 
     // start express server
-    app.listen(8000)
+    app.listen(ports)
 
     // // insert new users for test
     // await AppDataSource.manager.save(
@@ -45,6 +46,6 @@ AppDataSource.initialize().then(async () => {
     //     })
     // )
 
-    console.log("Express server has started on port 8000. Open http://localhost:8000 to see results")
+    console.log(`Express server has started on port ${ports}. Open http://localhost:${ports} `)
 
 }).catch(error => console.log(error))
