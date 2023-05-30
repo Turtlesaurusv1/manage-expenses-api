@@ -5,7 +5,6 @@ import { AppDataSource } from "./data-source"
 import { Routes } from "./routes"
 
 AppDataSource.initialize().then(async () => {
-
     // create express app
     const app = express()
     app.use(bodyParser.json())
@@ -46,6 +45,6 @@ AppDataSource.initialize().then(async () => {
     //     })
     // )
 
-    console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results")
+    console.log("Express server has started on port 8000. Open http://localhost:8000 to see results")
 
 }).catch(error => console.log(error))
