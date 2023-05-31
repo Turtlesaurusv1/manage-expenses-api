@@ -3,12 +3,17 @@ import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./data-source"
 import { Routes } from "./routes"
+require('dotenv').config();
+
+const cookieParser = require("cookie-parser");
+
 const ports = process.env.ports || 3000
 
 AppDataSource.initialize().then(async () => {
     // create express app
     const app = express()
     app.use(bodyParser.json())
+    app.use(cookieParser());
 
     // register express routes from defined application routes
     Routes.forEach(route => {

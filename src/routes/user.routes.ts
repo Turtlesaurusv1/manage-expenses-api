@@ -1,4 +1,4 @@
-import { UserController } from "../controller/UserController";
+import { UserController } from "../controller/user.controller";
 
 export const userRoutes = [
   {
@@ -18,6 +18,12 @@ export const userRoutes = [
     route: "/users",
     controller: UserController,
     action: "save",
+  },
+  {
+    method: "post",
+    route: "/auth/login",
+    controller: UserController,
+    action: "login",
   },
   {
     method: "delete",
