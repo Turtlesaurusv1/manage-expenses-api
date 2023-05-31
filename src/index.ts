@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./data-source"
 import { Routes } from "./routes"
+import * as cors from 'cors'
 require('dotenv').config();
 
 const cookieParser = require("cookie-parser");
@@ -14,6 +15,9 @@ AppDataSource.initialize().then(async () => {
     const app = express()
     app.use(bodyParser.json())
     app.use(cookieParser());
+    app.use(cors({
+        origin: '*'
+    }));
 
     // register express routes from defined application routes
     Routes.forEach(route => {
